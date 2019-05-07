@@ -5,7 +5,12 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                echo "PATH = ${PATH}"
+                sh 'mvn -Dmaven.test.failure.ignore=true install'
+            }
+            post {
+                success {
+                    junit 'target/surefire-reports/**/*.xml'
+                }
             }
         }
         stage('Test') {
@@ -19,10 +24,4 @@ pipeline {
             }
         }
     }
-
-    post {
-            always {
-                junit 'build/reports/**/*.xml'
-            }
-        }
 }
