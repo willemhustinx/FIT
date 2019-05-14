@@ -34,4 +34,9 @@ export class ExerciseDetailComponent implements OnInit {
     this.location.back();
   }
 
+  save(): void {
+    this.exerciseService.updateExercise(this.exercise)
+      .subscribe(() => this.goBack());
+  }
+
 }

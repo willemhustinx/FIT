@@ -7,7 +7,7 @@ import java.util.Date;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-public class ExerciseTest {
+class ExerciseTest {
 
     private final Exercise e = new Exercise(1, "Pullup", new Date());
 

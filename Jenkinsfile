@@ -6,7 +6,6 @@ pipeline {
             steps {
                 echo 'Building..'
                 echo "PATH = ${PATH}"
-                sh 'mvn -Dmaven.test.failure.ignore=true install'
             }
             post {
                 success {

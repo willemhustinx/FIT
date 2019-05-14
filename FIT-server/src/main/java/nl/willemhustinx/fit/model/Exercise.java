@@ -10,6 +10,10 @@ public class Exercise {
     String name;
     Date date;
 
+    public Exercise() {
+
+    }
+
     public Exercise(long id, String name, Date date) {
         this.id = id;
         this.name = name;
@@ -38,5 +42,14 @@ public class Exercise {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    @Override
+    public String toString() {
+        return "Exercise{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", date=" + date +
+                '}';
     }
 }

@@ -28,4 +28,18 @@ export class ExercisesComponent implements OnInit {
       .subscribe(exercises => this.exercises = exercises)
   }
 
+  add(name: string): void {
+    const ex: Exercise = new Exercise();
+    ex.name = name.trim();
+    ex.id = this.exercises.length + 1;
+
+    console.log(ex);
+
+    if (!name) { return; }
+    this.exerciseService.addExercise(ex)
+      .subscribe(exercise => {
+        this.exercises.push(exercise);
+      });
+  }
+
 }

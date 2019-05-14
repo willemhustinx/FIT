@@ -8,6 +8,8 @@ import { ExercisesComponent } from './exercises/exercises.component';
 import { ExerciseDetailComponent } from './exercise-detail/exercise-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './app-routing.module';
+import { WorkoutsComponent } from './workouts/workouts.component';
+import { WorkoutDetailComponent } from './workout-detail/workout-detail.component';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { AppRoutingModule } from './app-routing.module';
     AppComponent,
     ExercisesComponent,
     ExerciseDetailComponent,
-    MessagesComponent
+    MessagesComponent,
+    WorkoutsComponent,
+    WorkoutDetailComponent
   ],
   imports: [
     BrowserModule,

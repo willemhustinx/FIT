@@ -23,13 +23,11 @@ public class RestExercise {
         list.add(new Exercise(4, "Squat", new Date()));
     }
 
-    @GET @Produces(MediaType.APPLICATION_JSON)
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
     public List<Exercise> getExercises() {
-
         return list;
-
     }
-
 
     @GET
     @Path("/{id:[0-9][0-9]*}")
@@ -49,6 +47,33 @@ public class RestExercise {
         }
 
         return e;
+    }
+
+    @POST
+    @Consumes({MediaType.APPLICATION_JSON})
+    public Response createExercise(Exercise exercise) {
+
+        System.out.println("create");
+
+        exercise.setDate(new Date());
+
+        System.out.println(exercise);
+
+        list.add(exercise);
+
+        return Response.status(201).entity(exercise).build();
+
+        //return Response.noContent().build();
+    }
+
+    @PUT
+    @Produces({MediaType.APPLICATION_JSON})
+    public Response updateExercise(Exercise exercise) {
+
+        System.out.println("update");
+        System.out.println(exercise);
+
+        return Response.noContent().build();
     }
 
 }

@@ -45,6 +45,22 @@ export class ExerciseService {
     );
   }
 
+  /** POST: add a new hero to the server */
+  addExercise (exercise: Exercise): Observable<Exercise> {
+    return this.http.post<Exercise>(this.exercisesUrl, exercise, httpOptions).pipe(
+      tap((newExercise: Exercise) => this.log(`added exercise w/ id=${newExercise.id}`)),
+      catchError(this.handleError<Exercise>('addExercise'))
+    );
+  }
+
+  /** PUT: update the hero on the server */
+  updateExercise (exercise: Exercise): Observable<any> {
+    return this.http.put(this.exercisesUrl, exercise, httpOptions).pipe(
+      tap(_ => this.log(`updated exercise id=${exercise.id}`)),
+      catchError(this.handleError<any>('updateExercise'))
+    );
+  }
+
   /**
    * Handle Http operation that failed.
    * Let the app continue.

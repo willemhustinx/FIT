@@ -46,5 +46,15 @@
 
   </div><!-- /.row -->
 
+  <div class="row">
+    <label>Exersice name:
+      <input #exerciseName />
+    </label>
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button (click)="add(exerciseName.value); exerciseName.value=''">
+      add
+    </button>
+  </div>
+
 </div>
 <!-- /.container -->
