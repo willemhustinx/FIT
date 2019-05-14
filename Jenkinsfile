@@ -7,11 +7,6 @@ pipeline {
                 echo 'Building..'
                 echo "PATH = ${PATH}"
             }
-            post {
-                success {
-                    junit 'target/surefire-reports/**/*.xml'
-                }
-            }
         }
         stage('Test') {
             steps {
